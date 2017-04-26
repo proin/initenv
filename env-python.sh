@@ -7,11 +7,11 @@ if [ $apt_get_exists ]; then
 	sudo apt-get install -y build-essential git wget mysql-server redis-server redis-tools
 	
 	if [ ! -d ~/anaconda ]; then
-		wget https://repo.continuum.io/archive/Anaconda2-4.3.1-MacOSX-x86_64.sh -P ~
+		wget https://repo.continuum.io/archive/Anaconda2-4.3.1-Linux-x86_64.sh -P ~
 	fi
 	
 	if [ ! -d ~/anaconda3 ]; then
-		wget https://repo.continuum.io/archive/Anaconda3-4.3.1-MacOSX-x86_64.sh -P ~
+		wget https://repo.continuum.io/archive/Anaconda3-4.3.1-Linux-x86_64.sh -P ~
 	fi
 
 elif [ `uname` == 'Darwin' ]; then
@@ -23,11 +23,11 @@ elif [ `uname` == 'Darwin' ]; then
 	brew install git wget mysql redis
 
 	if [ ! -d ~/anaconda ]; then
-		wget https://repo.continuum.io/archive/Anaconda2-4.3.1-Linux-x86_64.sh -P ~
+		wget https://repo.continuum.io/archive/Anaconda2-4.3.1-MacOSX-x86_64.sh -P ~
 	fi
 	
 	if [ ! -d ~/anaconda3 ]; then
-		wget https://repo.continuum.io/archive/Anaconda3-4.3.1-Linux-x86_64.sh -P ~ 
+		wget https://repo.continuum.io/archive/Anaconda3-4.3.1-MacOSX-x86_64.sh -P ~ 
 	fi	
 else 
 	echo 'Not Support'
