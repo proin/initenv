@@ -2,7 +2,11 @@
 
 if [ $1 = '2' ]; then
 	rm $HOME/.bin/anaconda
-	ln -s $HOME/anaconda $HOME/.bin/anaconda
+	if [ -d ~/anaconda ]; then
+		ln -s $HOME/anaconda $HOME/.bin/anaconda
+	else
+		ln -s $HOME/anaconda2 $HOME/.bin/anaconda
+	fi
 elif [ $1 = '3' ]; then
 	rm $HOME/.bin/anaconda
 	ln -s $HOME/anaconda3 $HOME/.bin/anaconda

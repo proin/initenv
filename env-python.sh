@@ -13,7 +13,6 @@ if [ $apt_get_exists ]; then
 	if [ ! -d ~/anaconda3 ]; then
 		wget https://repo.continuum.io/archive/Anaconda3-4.3.1-Linux-x86_64.sh -P ~
 	fi
-
 elif [ `uname` == 'Darwin' ]; then
 	# brew installation
 	brew_exists=$(command -v brew) || true
@@ -22,7 +21,7 @@ elif [ `uname` == 'Darwin' ]; then
 	fi
 	brew install git wget mysql redis
 
-	if [ ! -d ~/anaconda ]; then
+	if [ ! -d ~/anaconda/ ] && [ ! -d ~/anaconda2 ]; then
 		wget https://repo.continuum.io/archive/Anaconda2-4.3.1-MacOSX-x86_64.sh -P ~
 	fi
 	
@@ -35,15 +34,22 @@ else
 fi
 
 # install anaconda
-if [ ! -d ~/anaconda ]; then
+if [ ! -d ~/anaconda/ ] && [ ! -d ~/anaconda2 ]; then
 	bash ~/Anaconda2-*.sh
 fi
 
-if [ ! -d ~/anaconda3 ]; then
+if [ ! -d ~/anaconda3/ ]; then
 	bash ~/Anaconda3-*.sh
 fi
 
-rm -rf ~/Anaconda*.sh
+while true; do
+	read -p "Do you want to delete Anaconda installer? (yes/no) " yn
+	case $yn in
+		[Yy]* ) rm -rf ~/Anaconda*.sh; break;;
+		[Nn]* ) break;;
+		* ) echo "Please answer yes or no.";;
+	esac
+done
 
 # Python Env
 if [ ! -d ~/.bin ]; then
