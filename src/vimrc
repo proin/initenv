@@ -1,0 +1,63 @@
+set nocompatible
+filetype off
+
+execute pathogen#infect()
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'gmarik/Vundle.vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'L9'
+Plugin 'git://git.wincent.com/command-t.git'
+Plugin 'file:///home/gmarik/path/to/plugin'
+Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+Plugin 'user/L9', {'name': 'newL9'}
+call vundle#end()
+filetype plugin indent on
+
+"Plugins
+
+Plugin 'The-NERD-Tree'
+Plugin 'AutoComplPop'
+Plugin 'JamshedVesuna/vim-markdown-preview'
+
+"vim Setting
+
+set smartindent
+set hlsearch
+set ignorecase
+syntax on
+set nu
+set tabstop=4
+set shiftwidth=4
+
+set foldmethod=syntax
+set foldlevelstart=1
+
+let javaScript_fold=1         " JavaScript
+let perl_fold=1               " Perl
+let php_folding=1             " PHP
+let r_syntax_folding=1        " R
+let ruby_fold=1               " Ruby
+let sh_fold_enabled=1         " sh
+let vimsyn_folding='af'       " Vim script
+let xml_syntax_folding=1      " XML
+
+" Javascript
+let g:javascript_plugin_jsdoc = 1
+let g:javascript_plugin_ngdoc = 1
+let g:javascript_plugin_flow = 1
+set foldmethod=syntax
+set conceallevel=1
+
+map :py<ENTER> <ESC>:w<ENTER><ESC>:!python %<CR>
+map :node<ENTER> <ESC>:w<ENTER><ESC>:!node %<CR>
+nmap ` <ESC>:NERDTreeToggle<ENTER>
+nmap rr <ESC><C-W>w 
+nmap ee yypb
+nmap <C-i> <C-u>
+nmap <C-k> <C-d>
+nmap l :set nu!<ENTER>
+nmap :Q :q<ENTER>
+nmap :W :%s/\t/    /ge<ENTER>:w<ENTER>
+nmap :T :tabnew<ENTER>
